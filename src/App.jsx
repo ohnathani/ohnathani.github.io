@@ -20,6 +20,16 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+  profile.email,
+)}&su=${encodeURIComponent('Portfolio inquiry')}`;
+
+function getExternalLinkProps(href) {
+  return href.startsWith('http')
+    ? { target: '_blank', rel: 'noopener noreferrer' }
+    : {};
+}
+
 function App() {
   const shellRef = useRef(null);
   const trailLayerRef = useRef(null);
@@ -71,7 +81,7 @@ function App() {
               <MapPin size={16} aria-hidden="true" />
               {profile.location}
             </span>
-            <a href={`mailto:${profile.email}`}>
+            <a href={gmailComposeUrl} {...getExternalLinkProps(gmailComposeUrl)}>
               <Mail size={16} aria-hidden="true" />
               {profile.email}
             </a>
@@ -134,11 +144,11 @@ function App() {
                 />
               )}
               <div className="card-actions">
-                <a href={project.links.code}>
+                <a href={project.links.code} {...getExternalLinkProps(project.links.code)}>
                   <Github size={17} aria-hidden="true" />
                   Code
                 </a>
-                <a href={project.links.demo}>
+                <a href={project.links.demo} {...getExternalLinkProps(project.links.demo)}>
                   <ArrowUpRight size={17} aria-hidden="true" />
                   Demo
                 </a>
@@ -225,15 +235,15 @@ function App() {
             <h2>Let's build something that earns a second look.</h2>
           </div>
           <div className="contact-actions" aria-label="Contact links">
-            <a className="button primary" href={`mailto:${profile.email}`}>
+            <a className="button primary" href={gmailComposeUrl} {...getExternalLinkProps(gmailComposeUrl)}>
               <Mail size={18} aria-hidden="true" />
               Email
             </a>
-            <a className="button secondary" href={profile.githubUrl}>
+            <a className="button secondary" href={profile.githubUrl} {...getExternalLinkProps(profile.githubUrl)}>
               <Github size={18} aria-hidden="true" />
               GitHub
             </a>
-            <a className="button secondary" href={profile.linkedinUrl}>
+            <a className="button secondary" href={profile.linkedinUrl} {...getExternalLinkProps(profile.linkedinUrl)}>
               <Linkedin size={18} aria-hidden="true" />
               LinkedIn
             </a>
@@ -260,7 +270,7 @@ function Header() {
         <span>
           <img src="/assets/hero-portfolio.png" alt="" />
         </span>
-        {profile.name}
+        Portfolio
       </a>
       <nav aria-label="Portfolio navigation">
         {navItems.map((item) => (
