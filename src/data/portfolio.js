@@ -25,7 +25,7 @@ export const projects = [
     stack: ['React', 'Vite', 'JavaScript', 'HTML', 'CSS'],
     impact: 'Establishes a clear home base for documenting growth toward a CS portfolio.',
     links: {
-      demo: '#',
+      demo: 'https://ohnathani.github.io/',
       code: 'https://github.com/ohnathani',
     },
   },
@@ -37,8 +37,9 @@ export const projects = [
     stack: ['Arduino', 'C++', 'Sensors', 'Circuits'],
     impact: 'Builds practical exposure to embedded systems through hands-on experimentation.',
     links: {
-      demo: '#',
-      code: 'https://github.com/ohnathani',
+      demo: 'https://github.com/ohnathaniarduino-solenoid-button',
+
+      code: 'https://github.com/ohnathaniarduino-solenoid-button',
     },
   },
   {

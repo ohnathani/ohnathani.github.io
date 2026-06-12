@@ -258,7 +258,7 @@ function Header() {
     <header className="site-header">
       <a className="brand" href="#" aria-label={`${profile.name} home`}>
         <span>
-          <TerminalSquare size={20} aria-hidden="true" />
+          <img src="/assets/hero-portfolio.png" alt="" />
         </span>
         {profile.name}
       </a>

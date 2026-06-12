@@ -1,43 +1,38 @@
 # Nathaniel Herradura's Portfolio
 
-A personal portfolio web application built using React + Vite, showcasing projects, skills, and development progress.
+A personal portfolio web application built with React and Vite, showcasing projects, skills, and development progress.
 
 ## Live Demo
+
 https://ohnathani.github.io/
 
-## About This Project
-This portfolio was built to practice frontend development and demonstrate growth as a developer. It highlights projects, technical skills, and continuous learning in web development.
-
 ## Tech Stack
-React  
-Vite  
-JavaScript (ES6+)  
-HTML5  
-CSS3  
-gh-pages  
+
+- React
+- Vite
+- JavaScript
+- HTML
+- CSS
+- GitHub Pages
 
 ## Project Structure
+
 ```text
 ohnathani.github.io/
+├── .github/workflows/deploy.yml
+├── public/
 ├── src/
 │   ├── data/
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── styles.css
-├── public/
-├── vite.config.js
+├── index.html
 ├── package.json
+├── vite.config.js
 └── README.md
-````
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/ohnathani/ohnathani.github.io.git
-cd ohnathani.github.io
 ```
+
+## Local Development
 
 Install dependencies:
 
@@ -45,13 +40,11 @@ Install dependencies:
 npm install
 ```
 
-Run development server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
-
-## Build and Preview
 
 Build for production:
 
@@ -59,53 +52,22 @@ Build for production:
 npm run build
 ```
 
-Preview production build:
+Preview the production build:
 
 ```bash
 npm run preview
 ```
 
-## Deployment (GitHub Pages)
+## GitHub Pages Deployment
 
-Install deployment tool:
+This repository is named `ohnathani.github.io`, so it is served at the root URL:
 
-```bash
-npm install gh-pages --save-dev
+```text
+https://ohnathani.github.io/
 ```
 
-Add scripts to package.json:
+The Vite base path is configured as `/` in `vite.config.js`.
 
-```json
-{
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  }
-}
-```
+Deployment is handled by `.github/workflows/deploy.yml`. On every push to `main`, GitHub Actions installs dependencies, builds the app, uploads the `dist` folder, and deploys it to GitHub Pages.
 
-Deploy:
-
-```bash
-npm run deploy
-```
-
-## Important Configuration
-
-Since this repository is:
-`ohnathani.github.io`
-
-Your vite.config.js must be:
-
-```js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-  base: "/"
-})
-```
+In the repository settings on GitHub, set **Pages > Build and deployment > Source** to **GitHub Actions**.

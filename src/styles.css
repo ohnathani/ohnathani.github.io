@@ -135,6 +135,12 @@ img {
   overflow: hidden;
 }
 
+.brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -149,6 +155,10 @@ nav a {
   color: var(--muted);
   font-size: var(--level-3);
   font-weight: 700;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 nav a:hover,
@@ -156,6 +166,7 @@ nav a:focus-visible {
   color: #050816;
   background: var(--yellow);
   outline: none;
+  transform: translateY(-2px);
 }
 
 .hero {
@@ -240,6 +251,7 @@ h3 {
 }
 
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -250,10 +262,13 @@ h3 {
   border-radius: 4px;
   font-size: var(--level-3);
   font-weight: 900;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   transition:
     background-color 180ms ease,
     color 180ms ease,
-    border-color 180ms ease;
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .button:hover,
@@ -262,6 +277,24 @@ h3 {
 .card-actions a:focus-visible {
   outline: 2px solid var(--yellow);
   outline-offset: 2px;
+}
+
+.button:hover,
+.button:focus-visible {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+  transform: translateY(-3px);
+}
+
+.button svg,
+.card-actions a svg {
+  transition: transform 180ms ease;
+}
+
+.button:hover svg,
+.button:focus-visible svg,
+.card-actions a:hover svg,
+.card-actions a:focus-visible svg {
+  transform: translate(2px, -2px);
 }
 
 .button.primary {
@@ -455,6 +488,15 @@ h3 {
   color: var(--blue);
   font-size: var(--level-3);
   font-weight: 900;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.card-actions a:hover,
+.card-actions a:focus-visible {
+  color: var(--yellow);
+  transform: translateY(-2px);
 }
 
 .skills-section {
@@ -623,5 +665,28 @@ h3 {
   .hero-actions .button,
   .contact-actions .button {
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  nav a,
+  .button,
+  .button svg,
+  .card-actions a,
+  .card-actions a svg {
+    transition: none;
+  }
+
+  nav a:hover,
+  nav a:focus-visible,
+  .button:hover,
+  .button:focus-visible,
+  .button:hover svg,
+  .button:focus-visible svg,
+  .card-actions a:hover,
+  .card-actions a:focus-visible,
+  .card-actions a:hover svg,
+  .card-actions a:focus-visible svg {
+    transform: none;
   }
 }
