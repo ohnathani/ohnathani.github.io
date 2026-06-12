@@ -24,8 +24,8 @@ const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeU
   profile.email,
 )}&su=${encodeURIComponent('Portfolio inquiry')}`;
 
-function getExternalLinkProps(href) {
-  return href.startsWith('http')
+function getNewTabLinkProps(href) {
+  return !href.startsWith('#')
     ? { target: '_blank', rel: 'noopener noreferrer' }
     : {};
 }
@@ -71,7 +71,7 @@ function App() {
               <Rocket size={18} aria-hidden="true" />
               View projects
             </a>
-            <a className="button secondary" href={profile.resumeUrl}>
+            <a className="button secondary" href={profile.resumeUrl} {...getNewTabLinkProps(profile.resumeUrl)}>
               <ArrowUpRight size={18} aria-hidden="true" />
               Resume
             </a>
@@ -81,7 +81,7 @@ function App() {
               <MapPin size={16} aria-hidden="true" />
               {profile.location}
             </span>
-            <a href={gmailComposeUrl} {...getExternalLinkProps(gmailComposeUrl)}>
+            <a href={gmailComposeUrl} {...getNewTabLinkProps(gmailComposeUrl)}>
               <Mail size={16} aria-hidden="true" />
               {profile.email}
             </a>
@@ -144,11 +144,11 @@ function App() {
                 />
               )}
               <div className="card-actions">
-                <a href={project.links.code} {...getExternalLinkProps(project.links.code)}>
+                <a href={project.links.code} {...getNewTabLinkProps(project.links.code)}>
                   <Github size={17} aria-hidden="true" />
                   Code
                 </a>
-                <a href={project.links.demo} {...getExternalLinkProps(project.links.demo)}>
+                <a href={project.links.demo} {...getNewTabLinkProps(project.links.demo)}>
                   <ArrowUpRight size={17} aria-hidden="true" />
                   Demo
                 </a>
@@ -235,15 +235,15 @@ function App() {
             <h2>Let's build something that earns a second look.</h2>
           </div>
           <div className="contact-actions" aria-label="Contact links">
-            <a className="button primary" href={gmailComposeUrl} {...getExternalLinkProps(gmailComposeUrl)}>
+            <a className="button primary" href={gmailComposeUrl} {...getNewTabLinkProps(gmailComposeUrl)}>
               <Mail size={18} aria-hidden="true" />
               Email
             </a>
-            <a className="button secondary" href={profile.githubUrl} {...getExternalLinkProps(profile.githubUrl)}>
+            <a className="button secondary" href={profile.githubUrl} {...getNewTabLinkProps(profile.githubUrl)}>
               <Github size={18} aria-hidden="true" />
               GitHub
             </a>
-            <a className="button secondary" href={profile.linkedinUrl} {...getExternalLinkProps(profile.linkedinUrl)}>
+            <a className="button secondary" href={profile.linkedinUrl} {...getNewTabLinkProps(profile.linkedinUrl)}>
               <Linkedin size={18} aria-hidden="true" />
               LinkedIn
             </a>
