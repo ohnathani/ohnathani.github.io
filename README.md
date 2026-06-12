@@ -46,16 +46,16 @@ ohnathani.github.io/
 
 Clone the repository:
 
-git clone https://github.com/ohnathani/ohnathani.github.io.git  
-cd ohnathani.github.io  
+`git clone https://github.com/ohnathani/ohnathani.github.io.git`  
+`cd ohnathani.github.io`  
 
 Install dependencies:
 
-npm install  
+`npm install`  
 
 Run development server:
 
-npm run dev  
+`npm run dev`  
 
 ---
 
@@ -63,11 +63,11 @@ npm run dev
 
 Build for production:
 
-npm run build  
+`npm run build`  
 
 Preview production build:
 
-npm run preview  
+`npm run preview`  
 
 ---
 
@@ -75,10 +75,11 @@ npm run preview
 
 Install deployment tool:
 
-npm install gh-pages --save-dev  
+`npm install gh-pages --save-dev`  
 
 Add scripts to package.json:
 
+```json id="pkg1"
 {
   "scripts": {
     "dev": "vite",
@@ -88,31 +89,3 @@ Add scripts to package.json:
     "deploy": "gh-pages -d dist"
   }
 }
-
-Deploy:
-
-npm run deploy  
-
----
-
-## Important Configuration
-
-Since this repository is:
-
-ohnathani.github.io  
-
-Your vite.config.js must be:
-
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-export default defineConfig({
-  plugins: [react()],
-  base: "/"
-})
-
----
-
-## Purpose
-
-This project is part of my learning journey in frontend development and building a professional software engineering portfolio.
