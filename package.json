@@ -1,10 +1,10 @@
 {
   "name": "cs-portfolio-webapp",
+  "homepage": "https://github.com/ohnathani/ohnathani.github.io",
   "private": true,
   "version": "0.1.0",
   "type": "module",
 
-  "homepage": "https://github.com/ohnathani/ohnathani.github.io",
 
   "scripts": {
     "dev": "vite",
